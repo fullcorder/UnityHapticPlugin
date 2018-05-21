@@ -5,6 +5,8 @@ namespace Haptic
 {
     public class Sample : MonoBehaviour
     {
+        [SerializeField] private Text _supported;
+
         [SerializeField] private Button _selection;
 
         [SerializeField] private Button _impactLight;
@@ -21,6 +23,8 @@ namespace Haptic
 
         private void Start()
         {
+            _supported.text = string.Format("IsSupprted : {0}", HapticPlugin.IsSupported());
+
             _selection.GetComponentInChildren<Text>().text = "Selection";
             _selection.onClick.AddListener(() => HapticPlugin.Generate(FeedBackType.Selection));
 
