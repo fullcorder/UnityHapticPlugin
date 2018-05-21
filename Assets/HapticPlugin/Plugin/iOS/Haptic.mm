@@ -30,7 +30,7 @@ void nortification(UINotificationFeedbackType type)
 
 bool _Haptic_supported()
 {
-    return [[UIDevice currentDevice] systemVersion].floatValue >= 10.0;
+    return [UINotificationFeedbackGenerator class] != nil;
 }
 
 void _Haptic_generate(FeedbackType type)
