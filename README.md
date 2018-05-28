@@ -2,4 +2,4 @@
 
 iOS Haptic Feedback Plugin
 
-- Develop Unity Version Unity2017.1.3
+- Develop Unity Version Unity2017.4.3
