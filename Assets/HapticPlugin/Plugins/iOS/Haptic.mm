@@ -30,7 +30,11 @@ void nortification(UINotificationFeedbackType type)
 
 bool _Haptic_supported()
 {
-    return [UINotificationFeedbackGenerator class] != nil;
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+    return true;
+#else
+    return false;
+#endif
 }
 
 void _Haptic_generate(FeedbackType type)
