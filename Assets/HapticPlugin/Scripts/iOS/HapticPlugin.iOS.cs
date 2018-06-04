@@ -8,9 +8,6 @@ namespace Haptic
         private static bool? _isSupported;
 
         [DllImport("__Internal")]
-        private static extern bool _Haptic_supported();
-
-        [DllImport("__Internal")]
         private static extern void _Haptic_generate(int type);
 
         public static void Generate(FeedBackType type)
@@ -24,7 +21,10 @@ namespace Haptic
 
         public static bool IsSupported()
         {
-            return _Haptic_supported();
+            var generation = UnityEngine.iOS.Device.generation;
+            var modelName = generation.ToString().ToLower();
+            var iphone7OrLater = (int) generation > 30;
+            return !modelName.Contains("ipad") && iphone7OrLater;
         }
     }
 }
